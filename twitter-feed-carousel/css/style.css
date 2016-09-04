@@ -1,107 +1,150 @@
-.tfc-logo{float:left; margin-right:30px;width:10%;text-align:center;}
+/*CSS BY WWW.MITTUN.COM
+Version 1.0.0.2
+*/
 
-.tfc-carousel{	
-
+.responsive-universal-mittun {
+    padding: 10px;
+    margin: 0 auto;
+}
+.container-inner-mittun {
     position: relative;
-
-	/*width:84%;*/
-
-	
-
+    display: block;
+    margin: 0 auto;
+    max-width: 1000px;
+    width: 100%;
 }
-
-.tfc-full-width{
-
-	width:100%;
-
+.tfc-logo {
+    float: left;
+    margin-right: 30px;
+    width: 10%;
+    text-align: center;
 }
-
-
-
-.tfc-fixed-width{
-
-	width:84%;
-
-	float:right;
-
+.tfc-carousel {
+    position: relative;
+    /*width:84%;*/
 }
-
-
-
-.tfc-carousel ul.slides{overflow:hidden;}
-
-.tfc-carousel .tweet-text{font-weight:900; line-height:40px; font-size:27px;}
-
-.tfc-carousel .tweet-time{
-
-   /* color: #f45910; */
+.tfc-full-width {
+    width: 100%;
+}
+.tfc-fixed-width {
+    width: 84%;
+    float: right;
+}
+.tfc-carousel ul.slides {
+    overflow: hidden;
+}
+.tfc-carousel .tweet-text {
+    font-weight: 900;
+    line-height: 40px;
+    font-size: 27px;
+}
+.tfc-carousel .tweet-time {
+    /* color: #f45910; */
+    
     display: block;
     font-size: 17px;
     font-weight: 900;
     font-style: italic;
     position: relative;
-
     left: 0;
-
     bottom: 0;
-
 }
-
-.tfc-carousel .tweet-reply {   
-
-	
-
+.tfc-carousel .tweet-reply {
     float: left;
-
-	margin-right:3px;
-
-	
-
+    margin-right: 3px;
 }
-
 .tfc-carousel .tweet-retweet {
-
-
-
     float: right;
-
 }
-
-.tfc-carousel .tweet-button{
-
-	margin-top: 30px;
-
+.tfc-carousel .tweet-button {
+    margin-top: 30px;
     float: right;
-
 }
-
-.tfc-carousel .twitter-button {
-
+.tfc-carousel a.twitter-button {
     background: white;
-
-    border-radius: 0 !important;
-
-    color: #01a4e2 !important;
-
-     font-size: 18px !important;
-
+    border-radius: 0;
+    color: #01a4e2;
+    font-size: 18px;
     line-height: 42px;
-
-
-
-    padding: 8px 35px !important;
-
+    padding: 10px 35px;
     text-transform: lowercase;
-
+    border: 1px solid #01a4e2;
+    text-decoration: none;
+    transition: all .25s ease-in-out;
+    -moz-transition: all .25s ease-in-out;
+    -webkit-transition: all .25s ease-in-out;
+    display: block;
+    width: 100%;
 }
+.tfc-carousel a.twitter-button:hover {
+    background: #01a4e2;
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+}
+.flex-direction-nav a {
+    outline: 0!important;
+    color: black!important;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.3);
+}
+.flex-direction-nav a:hover {
+    color: #01a4e2!important
+}
+
+/* ===========
+
+RESPONSIVE TIER START
+
+============== */
 
 @media (min-width: 320px) and (max-width: 580px) {
-	
-	.tfc-fixed-width{width:94%;	float:right;}
-	.flex-direction-nav a:before{font-size:30px;}
-	.flex-direction-nav .flex-prev{left:-45px;}
-	.flex-direction-nav .flex-next{right:-20px;}
-	.tfc-carousel .tweet-text {font-weight: 900;line-height: 24px;font-size: 18px;}
-	.tfc-logo{width:100%;}
-	
+    .tfc-fixed-width {
+        width: 94%;
+        float: right;
+    }
+    .flex-direction-nav a:before {
+        font-size: 38px;
+    }
+    .flex-direction-nav .flex-prev {
+        left: -45px;
+    }
+    .flex-direction-nav .flex-next {
+        right: -20px;
+    }
+    .tfc-carousel .tweet-text {
+        font-weight: 500;
+        line-height: 24px;
+        font-size: 17px;
+    }
+    .tfc-logo {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+    }
+    .tfc-logo img {
+        width: 30%;
+    }
+    .tfc-carousel .tweet-reply,
+    .tfc-carousel .tweet-retweet {
+        width: 49%;
+    }
+    .tfc-carousel .tweet-button {
+        width: 98%;
+        margin: 15px auto;
+    }
+    .tfc-carousel a.twitter-button {
+        text-align: center;
+        font-size: 18px;
+        padding: 5px 15px;
+        display: block;
+        width: 100%;
+    }
+    .flex-direction-nav a {
+        margin-top: -30%!important
+    }
+    .tfc-carousel .item {
+        width: 86%;
+        margin: 0 auto;
+    }
 }

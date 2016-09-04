@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Twitter Feed Carousel by Mittun
-Plugin URI:  http://mittun.co
-Description: Custom twitter plugin by mittun - the #1 website solution
-Version:     1.02
+Plugin URI:  http://www.mittun.com
+Description: Easily show your Twitter feed through a beautiful carousel. Fully responsive and ready to rock. This is the best WordPress Twitter widget plugin available.
+Version:     1.0.0.2
 Author:      Mittun
-Author URI:  http://mittun.com
+Author URI:  http://www.mittun.com
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Domain Path: /languages
@@ -208,7 +208,7 @@ function tfc_shortcode_callback($atts)
 		
 		if(!empty($logo))
 		{
-			$output.='<div class="tfc-logo"><a href="http://twitter.com/'.$user_name.'" target="_blank"><img src="'.$logo.'" /></a></div>';
+			$output.='<div id="container-master-mittun-tfc-plugin" class="responsive-universal-mittun"><div class="container-inner-mittun"> <div class="tfc-logo"><a href="http://twitter.com/'.$user_name.'" target="_blank"><img src="'.$logo.'" /></a></div>';
 		}
 	
 		$output.='<div class="tfc-carousel '.(!empty($logo)?'tfc-fixed-width':'tfc-full-width').'"><ul class="slides">';
@@ -231,7 +231,7 @@ function tfc_shortcode_callback($atts)
 			$output.='</div></li>';
 		 }
 		 		 
-		$output.='</ul></div>';
+		$output.='</ul></div></div></div>';
 	}
 	return $output;
 }

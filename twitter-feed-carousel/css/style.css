@@ -1,0 +1,107 @@
+.tfc-logo{float:left; margin-right:30px;width:10%;text-align:center;}
+
+.tfc-carousel{	
+
+    position: relative;
+
+	/*width:84%;*/
+
+	
+
+}
+
+.tfc-full-width{
+
+	width:100%;
+
+}
+
+
+
+.tfc-fixed-width{
+
+	width:84%;
+
+	float:right;
+
+}
+
+
+
+.tfc-carousel ul.slides{overflow:hidden;}
+
+.tfc-carousel .tweet-text{font-weight:900; line-height:40px; font-size:27px;}
+
+.tfc-carousel .tweet-time{
+
+   /* color: #f45910; */
+    display: block;
+    font-size: 17px;
+    font-weight: 900;
+    font-style: italic;
+    position: relative;
+
+    left: 0;
+
+    bottom: 0;
+
+}
+
+.tfc-carousel .tweet-reply {   
+
+	
+
+    float: left;
+
+	margin-right:3px;
+
+	
+
+}
+
+.tfc-carousel .tweet-retweet {
+
+
+
+    float: right;
+
+}
+
+.tfc-carousel .tweet-button{
+
+	margin-top: 30px;
+
+    float: right;
+
+}
+
+.tfc-carousel .twitter-button {
+
+    background: white;
+
+    border-radius: 0 !important;
+
+    color: #01a4e2 !important;
+
+     font-size: 18px !important;
+
+    line-height: 42px;
+
+
+
+    padding: 8px 35px !important;
+
+    text-transform: lowercase;
+
+}
+
+@media (min-width: 320px) and (max-width: 580px) {
+	
+	.tfc-fixed-width{width:94%;	float:right;}
+	.flex-direction-nav a:before{font-size:30px;}
+	.flex-direction-nav .flex-prev{left:-45px;}
+	.flex-direction-nav .flex-next{right:-20px;}
+	.tfc-carousel .tweet-text {font-weight: 900;line-height: 24px;font-size: 18px;}
+	.tfc-logo{width:100%;}
+	
+}

@@ -236,7 +236,7 @@ function tfc_shortcode_callback($atts)
 	return $output;
 }
 
-function tfc_json_tweet_text_to_HTML($tweet, $links=true, $users=true, $hashtags=true)
+function tfc_json_tweet_text_to_HTML($tweet, $links=true, $users=true, $hashtags=true,$media=true)
 {
     $return = $tweet->text;
 
@@ -269,6 +269,16 @@ function tfc_json_tweet_text_to_HTML($tweet, $links=true, $users=true, $hashtags
             $temp["start"] = $e->indices[0];
             $temp["end"] = $e->indices[1];
             $temp["replacement"] = "<a href='https://twitter.com/hashtag/".$e->text."?src=hash' target='_blank'>#".$e->text."</a>";
+            $entities[] = $temp;
+        }
+    }
+	if($media && is_array($tweet->entities->media))
+    {
+        foreach($tweet->entities->media as $e)
+        {
+            $temp["start"] = $e->indices[0];
+            $temp["end"] = $e->indices[1];
+            $temp["replacement"] = "<a href='".$e->url."' target='_blank'>".$e->display_url."</a>";
             $entities[] = $temp;
         }
     }

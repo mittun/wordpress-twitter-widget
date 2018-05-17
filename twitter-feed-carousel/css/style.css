@@ -1,6 +1,7 @@
-/*CSS BY WWW.MITTUN.COM
-Version 1.0.0.2
-*/
+/**
+ * CSS BY MITTUN.COM
+ * @version 1.0.2
+ */
 
 .responsive-universal-mittun {
     padding: 10px;
@@ -40,7 +41,7 @@ Version 1.0.0.2
 }
 .tfc-carousel .tweet-time {
     /* color: #f45910; */
-    
+
     display: block;
     font-size: 17px;
     font-weight: 900;

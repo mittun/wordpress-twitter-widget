@@ -111,10 +111,10 @@ function tfc_settings() {
 					<th scope="row"><?php _e('Twitter Logo','pix'); ?></th>
 					<td>
 						<?php $logo = tfc_get_option('logo');?>
-						<input type="text" name="tfc[logo]" class="regular-text" value="<?php echo $logo ; ?>" size="25" />
-						<input type='button' class="button-primary tfc-upload" value="<?php _e('Upload Logo','tfc');?>" />
-						<input type='button' class="button-primary tfc-remove" value="<?php _e('Remove','tfc');?>" />
-						<div class="tfc-upload-snap"><?php if(!empty($logo)){ ?><img src="<?php echo $logo;?>"/><?php } ?></div>
+						<input type="text" name="tfc[logo]" class="regular-text" value="<?php echo esc_url($logo); ?>" size="25" />
+						<input type='button' class="button-primary tfc-upload" value="<?php _e('Upload Logo','tfc'); ?>" />
+						<input type='button' class="button-primary tfc-remove" value="<?php _e('Remove','tfc'); ?>" />
+						<div class="tfc-upload-snap"><?php if(!empty($logo)){ ?><img src="<?php echo esc_url($logo); ?>"/><?php } ?></div>
 					</td>
 				</tr>
 				<tr valign="top">
@@ -223,7 +223,7 @@ function tfc_shortcode_callback($atts) {
 		$logo = tfc_get_option('logo');
 
 		if(!empty($logo)) {
-			$output .= '<div id="container-master-mittun-tfc-plugin" class="responsive-universal-mittun"><div class="container-inner-mittun"> <div class="tfc-logo"><a href="http://twitter.com/' . $user_name . '" target="_blank"><img src="' . $logo . '" /></a></div>';
+			$output .= '<div id="container-master-mittun-tfc-plugin" class="responsive-universal-mittun"><div class="container-inner-mittun"> <div class="tfc-logo"><a href="http://twitter.com/' . $user_name . '" target="_blank"><img src="' . esc_url($logo) . '" /></a></div>';
 		}
 
 		$output .= '<div class="tfc-carousel ' . (!empty($logo) ? 'tfc-fixed-width' : 'tfc-full-width') . '"><ul class="slides">';
@@ -354,7 +354,7 @@ function tfc_ago( $time ) {
 		$periods[$j] .= "s";
 	}
 
-	return "$difference $periods[$j] ago ";
+	return $difference $periods[$j] . " ago ";
 }
 
 /**

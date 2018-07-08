@@ -231,17 +231,25 @@ function tfc_shortcode_callback($atts) {
 		foreach($feeds as $feed) {
 			$output .= '<li><div class="item">';
 			$output .= '<span class="tweet-text">';
-			$latestTweet = tfc_json_tweet_text_to_HTML($feed);
-			$latestTweet = preg_replace( '/http:\/\/([a-z0-9_\.\-\+\&\!\#\~\/\,]+)/i', '&nbsp;<a href="http://$1" target="_blank">http://$1</a>&nbsp;', $latestTweet );
-			$latestTweet = preg_replace( '/@([a-z0-9_]+)/i', '&nbsp;<a href="http://twitter.com/$1" target="_blank">@$1</a>&nbsp;', $latestTweet );
-			$output .= $latestTweet;
+
+			$latest_tweet = tfc_json_tweet_text_to_HTML($feed);
+
+			$latest_tweet = preg_replace( '/http:\/\/([a-z0-9_\.\-\+\&\!\#\~\/\,]+)/i', '&nbsp;<a href="http://$1" target="_blank">http://$1</a>&nbsp;', $latest_tweet );
+			$latest_tweet = preg_replace( '/@([a-z0-9_]+)/i', '&nbsp;<a href="http://twitter.com/$1" target="_blank">@$1</a>&nbsp;', $latest_tweet );
+
+			$output .= $latest_tweet;
 			$output .= '</span>';
-			$twitterTime = strtotime( $feed->created_at );
-			$timeAgo = tfc_ago( $twitterTime );
-			$output .= '<a href="http://twitter.com/' . $feed->user->screen_name . '/statuses/' . $feed->id_str . '" class="tweet-time">' . $timeAgo . '</a>';
+
+			$twitter_time = strtotime( $feed->created_at );
+
+			$time_ago = tfc_ago( $twitter_time );
+
+			$output .= '<a href="http://twitter.com/' . $feed->user->screen_name . '/statuses/' . $feed->id_str . '" class="tweet-time">' . $time_ago . '</a>';
 
 			$output .='<div class="tweet-button"><div class="tweet-reply"><a href="https://twitter.com/intent/tweet?in_reply_to=' . $feed->id_str . '" class="mk-button outline-btn-light button-682 light mk-shortcode outline-dimension large twitter-button">'.__('reply!','tfc').'</a></div>';
+
 			$output .='<div class="tweet-retweet"><a href="https://twitter.com/intent/retweet?tweet_id=' . $feed->id_str . '" class="mk-button outline-btn-light button-682 light mk-shortcode outline-dimension large twitter-button">' . __('retweet!','tfc') . '</a></div></div>';
+
 			$output .= '</div></li>';
 		}
 
@@ -316,8 +324,8 @@ function tfc_get_twitter_feed($count = 5) {
 	if(!empty($user_name) && !empty($consumer_key) && !empty($consumer_secret) && !empty($access_token) && !empty($access_token_secret)) {
 		require_once(TFC_PATH . '/inc/twitteroauth.php');
 
-		$twitterConnection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
-		$feeds = $twitterConnection->get(
+		$twitter_connection = new TwitterOAuth($consumer_key, $consumer_secret, $access_token, $access_token_secret);
+		$feeds = $twitter_connection->get(
 			'statuses/user_timeline',
 			array(
 				'screen_name'     => $user_name,
@@ -364,12 +372,12 @@ function tfc_ago( $time ) {
 add_action( 'wp_enqueue_scripts', 'tfc_scripts' );
 function tfc_scripts() {
 
-	wp_enqueue_style( 'tfc-flexslider', TFC_URL.'/css/flexslider.css' );
-	wp_enqueue_style( 'tfc-style', TFC_URL.'/css/style.css' );
+	wp_enqueue_style( 'tfc-flexslider', TFC_URL . '/css/flexslider.css' );
+	wp_enqueue_style( 'tfc-style', TFC_URL . '/css/style.css' );
 
 	wp_enqueue_script( 'jquery');
-	wp_enqueue_script( 'tfc-flexslider',TFC_URL.'/js/jquery.flexslider-min.js',array('jquery'),false,true);
-	wp_enqueue_script( 'tfc-script',TFC_URL.'/js/script.js',array('jquery'),false,true);
+	wp_enqueue_script( 'tfc-flexslider', TFC_URL . '/js/jquery.flexslider-min.js', array('jquery'), false, true);
+	wp_enqueue_script( 'tfc-script', TFC_URL . '/js/script.js', array('jquery'), false, true);
 	wp_localize_script(
 		'tfc-script',
 		'tfcObj',
